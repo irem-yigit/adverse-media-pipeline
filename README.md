@@ -42,9 +42,17 @@ To run the project, you must have the following software installed on your syste
 
 2. **Import library**
 
-    - python -m venv venv
-    - venv\Scripts\activate
-    - pip install requests beautifulsoup4 urllib3 lxml python-dotenv
+    ```bash
+    python -m venv venv
+    ```
+
+    ```bash
+    venv\Scripts\activate
+    ```
+    
+    ```bash
+    pip install requests beautifulsoup4 urllib3 lxml python-dotenv
+    ```
 
     
 3. **Build the project:**
