@@ -10,12 +10,6 @@ response = requests.get(
 
 soup = BeautifulSoup(response.text, "lxml")
 
-
-#headlines = soup.find_all("a")
-
-#for h in headlines[:10]:
-#    print(h.get_text(strip=True))
-
 links = []
 
 for a in soup.find_all("a"):
