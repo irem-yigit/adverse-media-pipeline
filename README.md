@@ -15,7 +15,6 @@ Bu proje; web crawling, web scraping, veri depolama (PostgreSQL) ve AI tabanlı 
 ## Tech Stack
 
 - Python 3.14.2 version
-- beautifulsoup4 (bs4)
 - AI / NLP Modelleri (Sentiment & Entity Extraction)
 - PostgreSQL 16 version
 
@@ -26,11 +25,12 @@ Bu proje; web crawling, web scraping, veri depolama (PostgreSQL) ve AI tabanlı 
 To run the project, you must have the following software installed on your system:
 
 - Python 3.10+
-- urllib3
-- beautifulsoup4 (bs4)
-- lxml (opsiyonel)
+- urllib3 2.6+
+- beautifulsoup4 (bs4) 4.14+
+- lxml (opsiyonel) 6.0+
 - openai veya httpx
 - PostgreSQL or another compatible SQL database
+- Docker
 
 ### Installation
 
@@ -40,7 +40,7 @@ To run the project, you must have the following software installed on your syste
    git clone https://github.com/irem-yigit/adverse-media-pipeline.git
    ```
 
-2. **Import library**
+2. **Create and active a virtual environment**
 
     ```bash
     python -m venv venv
@@ -50,15 +50,23 @@ To run the project, you must have the following software installed on your syste
     venv\Scripts\activate
     ```
     
+
+3. **Import and check the library**
+
     ```bash
     pip install requests beautifulsoup4 urllib3 lxml python-dotenv
     ```
 
-    
-3. **Build the project:**
+    ```bash
+    pip list
+    ```
 
 
 4. **Run the project:**
+
+    ```bash
+   python main.py
+    ```
 
    Once the application is launched, you can start using the APIs.
 
