@@ -4,7 +4,7 @@ from datetime import date
 
 from crawler.base_crawler import BaseCrawler
 
-class BBCCrawler(BaseCrawler):
+class BbcCrawler(BaseCrawler):
 
     BASE_URL = "https://www.bbc.com/turkce"
 
