@@ -20,16 +20,3 @@ for p in soup.find_all("p"):
 article_text = " ".join(content)
 
 print(article_text[:1000])
-
-KEYWORDS = [
-    "terör", "uyuşturucu", "rüşvet",
-    "yolsuzluk", "dolandırıcılık",
-    "kara para", "istismar"
-]
-
-def is_adverse(text):
-    text = text.lower()
-    return any(k in text for k in KEYWORDS)
-
-print(is_adverse(article_text))
-
