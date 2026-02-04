@@ -1,7 +1,7 @@
 import requests
 from bs4 import BeautifulSoup
 
-url = "https://www.bbc.com/turkce/articles/cj4ljjk2n0xo"
+url = "https://www.bbc.com/turkce/articles/cy4g310ldg7o"
 
 html = requests.get(
     url,
