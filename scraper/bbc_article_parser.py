@@ -51,6 +51,6 @@ if __name__ == "__main__":
 
 
 if contains_adverse_keyword(article["content"]):
-    print("⚠️ Adverse media olabilir")
+    print("Adverse media olabilir")
 else:
-    print("✅ Normal haber")
+    print("Normal haber")
