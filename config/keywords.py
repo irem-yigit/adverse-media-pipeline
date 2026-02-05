@@ -13,12 +13,6 @@ ADVERSE_KEYWORDS = [
     "terör örgütü"
 ]
 
-#def is_adverse(text):
-#    text = text.lower()
-#    return any(k in text for k in ADVERSE_KEYWORDS)
-
-#print(is_adverse(article_text))
-
 def contains_adverse_keyword(text: str) -> bool:
     text = text.lower()
     return any(keyword in text for keyword in ADVERSE_KEYWORDS)
