@@ -1,21 +1,20 @@
 # Adverse Media Pipeline
 <a name="readme-top"></a>
-Adverse Media Pipeline, yurt içi ve yurt dışı haber kaynaklarından adverse media (olumsuz haber) içeriklerini otomatik olarak toplayan, depolayan ve çok katmanlı bir AI pipeline ile analiz eden uçtan uca bir veri işleme sistemidir.
+Adverse Media Pipeline is an end-to-end data processing system that automatically collects, stores, and analyzes adverse media (negative news) content from domestic and international news sources using a multi-layered AI pipeline. This project adopts a decoupled, scalable architecture that integrates web crawling, web scraping, data storage, and AI-based content analysis components.
 
-Bu proje; web crawling, web scraping, veri depolama (PostgreSQL) ve AI tabanlı içerik analizi bileşenlerini ayrıştırılmış, ölçeklenebilir bir mimariyle ele alır.
+## Project Objective
 
-## Projenin Amacı
+The goal of this project is to support critical processes in finance, compliance, AML/KYC, and risk analysis by:
 
-* Finans, uyum (compliance), AML/KYC ve risk analiz süreçlerinde kritik öneme sahip olan adverse media haberlerinin:
-* Günlük olarak otomatik toplanması
-* İçeriklerinin analiz edilmesi
-* Olumsuz/olumlu haber ayrımının yapılması
-* Haber metinlerinden kişi, kurum ve organizasyonların çıkarılması amaçlanmaktadır.
+* Automatically collecting adverse media news on a daily basis
+* Analyzing the content of collected news articles
+* Classifying news as positive or negative
+* Extracting people, companies, and organizations from news texts
 
 ## Tech Stack
 
 - Python 3.14.2 version
-- AI / NLP Modelleri (Sentiment & Entity Extraction)
+- AI / NLP Models (Sentiment & Entity Extraction)
 - PostgreSQL 16 version
 
 ## Getting Started
