@@ -1,5 +1,6 @@
 import requests
 from bs4 import BeautifulSoup
+from scraper.base_scraper import BaseScraper
 from config.keywords import contains_adverse_keyword
 
 

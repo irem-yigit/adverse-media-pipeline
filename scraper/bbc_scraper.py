@@ -1,32 +1,47 @@
 import requests
-from bs4 import BeautifulSoup
+from bs4 import BeautifulSoup, soup
+from scraper.base_scraper import BaseScraper
 
-BASE_URL = "https://www.bbc.com"
-START_URL = "https://www.bbc.com/turkce"
+class BbcScraper(BaseScraper):
 
-HEADERS = {
-    "User-Agent": "Mozilla/5.0"
-}
+    BASE_URL = "https://www.bbc.com"
+    START_URL = "https://www.bbc.com/turkce"
 
-def get_article_links():
-    response = requests.get(START_URL, headers=HEADERS, timeout=10)
-    response.raise_for_status()
+    HEADERS = {
+        "User-Agent": "Mozilla/5.0"
+    }
 
-    soup = BeautifulSoup(response.text, "lxml")
+    def get_article_links(self):
+        response = requests.get(self.START_URL, headers=self.HEADERS)
+        soup = BeautifulSoup(response.text, "lxml")
 
-    links = set()
+        links = set()
 
-    for a in soup.find_all("a"):
-        href = a.get("href")
-        if href and href.startswith("/turkce/articles/"):
-            links.add(BASE_URL + href)
+        for a in soup.select("a[href]"):
+            href = a["href"]
 
-    return list(links)
+            # BBC article pattern
+            if "/articles/" in href:
+                if href.startswith("/"):
+                    links.add(self.BASE_URL + href)
 
 
-if __name__ == "__main__":
-    article_links = get_article_links()
-    print(f"Toplam link sayısı: {len(article_links)}")
+        return list(links)
 
-    for link in article_links[:5]:
-        print(link)
+    def parse_article(self, url):
+        response = requests.get(url, headers=self.HEADERS)
+        soup = BeautifulSoup(response.text, "lxml")
+
+        title = soup.find("h1")
+        time = soup.find("time")
+
+        paragraphs = soup.find_all("p")
+        content = " ".join(p.get_text(strip=True) for p in paragraphs)
+
+        return {
+            "source": "BBC_TURKCE",
+            "url": url,
+            "title": title.get_text(strip=True) if title else None,
+            "published_at": time.get("datetime") if time else None,
+            "content": content
+        }
