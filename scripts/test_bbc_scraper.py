@@ -6,8 +6,8 @@ from scraper.bbc_scraper import BbcScraper
 
 def test_get_article_links():
     scraper = BbcScraper()
-    links = scraper.get_article_links()
 
+    links = scraper.get_article_links()
     print(f"Toplam link sayısı: {len(links)}")
 
     for link in links[:5]:
