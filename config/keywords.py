@@ -15,4 +15,4 @@ ADVERSE_KEYWORDS = [
 
 def contains_adverse_keyword(text: str) -> bool:
     text = text.lower()
-    return any(keyword in text for keyword in ADVERSE_KEYWORDS)
+    return any(keyword.lower() in text for keyword in ADVERSE_KEYWORDS)
