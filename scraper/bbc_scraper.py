@@ -1,17 +1,13 @@
 import requests
 from bs4 import BeautifulSoup
 from scraper.base_scraper import BaseScraper
-from config.scraper_config import BBC_BASE_URL, REQUEST_TIMEOUT
+from config.scraper_config import BBC_BASE_URL, REQUEST_TIMEOUT, HEADERS
 
 class BbcScraper(BaseScraper):
 
-    HEADERS = {
-        "User-Agent": "Mozilla/5.0"
-    }
-
     def get_article_links(self):
         try:
-            response = requests.get(BBC_BASE_URL, timeout=REQUEST_TIMEOUT, headers=self.HEADERS)
+            response = requests.get(BBC_BASE_URL, timeout=REQUEST_TIMEOUT, headers=HEADERS)
             response.raise_for_status()
         except requests.RequestException as e:
             print(f"BBC bağlantı hatası: {e}")
@@ -26,7 +22,7 @@ class BbcScraper(BaseScraper):
             # BBC article pattern
             if "/articles/" in href:
                 if href.startswith("/"):
-                    full_url = self.BASE_URL + href
+                    full_url = BBC_BASE_URL + href
                 else:
                     full_url = href
 
@@ -36,7 +32,7 @@ class BbcScraper(BaseScraper):
 
     def parse_article(self, url):
         try:
-            response = requests.get(url, headers=self.HEADERS, timeout=10)
+            response = requests.get(url, headers=HEADERS, timeout=REQUEST_TIMEOUT)
             response.raise_for_status()
         except requests.RequestException as e:
             print(f"Haber çekilemedi: {url} -> {e}")
@@ -52,7 +48,7 @@ class BbcScraper(BaseScraper):
         time_tag = soup.find("time")
         published_at = time_tag.get("datetime") if time_tag else None
 
-        # Asıl article body'yi bulmaya çalış
+        # Article içeriği
         article_tag = soup.find("article")
 
         if article_tag:
