@@ -1,11 +1,9 @@
 import requests
 from bs4 import BeautifulSoup
 from scraper.base_scraper import BaseScraper
+from config.scraper_config import BBC_BASE_URL, REQUEST_TIMEOUT
 
 class BbcScraper(BaseScraper):
-
-    BASE_URL = "https://www.bbc.com"
-    START_URL = "https://www.bbc.com/turkce"
 
     HEADERS = {
         "User-Agent": "Mozilla/5.0"
@@ -13,7 +11,7 @@ class BbcScraper(BaseScraper):
 
     def get_article_links(self):
         try:
-            response = requests.get(self.START_URL, headers=self.HEADERS, timeout=10)
+            response = requests.get(BBC_BASE_URL, timeout=REQUEST_TIMEOUT, headers=self.HEADERS)
             response.raise_for_status()
         except requests.RequestException as e:
             print(f"BBC bağlantı hatası: {e}")
