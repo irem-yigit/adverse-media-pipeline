@@ -4,6 +4,3 @@ def run_daily_job():
     print("Daily adverse media job started")
     run_bbc_pipeline()
     print("Daily adverse media job finished")
-
-if __name__ == "__main__":
-    run_daily_job()
