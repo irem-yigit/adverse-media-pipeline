@@ -2,11 +2,13 @@ import logging
 from scraper.bbc_scraper import BbcScraper
 from config.keywords import contains_adverse_keyword
 from datetime import timedelta,datetime
+from db.service.article_service import ArticleService
 
 logger = logging.getLogger(__name__)
 
 def run_bbc_pipeline():
     scraper = BbcScraper()
+    service = ArticleService()
     today = datetime.today().date()
 
     for link in scraper.get_article_links():
