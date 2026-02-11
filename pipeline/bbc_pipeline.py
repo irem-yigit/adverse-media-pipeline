@@ -1,6 +1,9 @@
+import logging
 from scraper.bbc_scraper import BbcScraper
 from config.keywords import contains_adverse_keyword
 from datetime import timedelta,datetime
+
+logger = logging.getLogger(__name__)
 
 def run_bbc_pipeline():
     scraper = BbcScraper()
@@ -21,4 +24,4 @@ def run_bbc_pipeline():
             continue
 
         if contains_adverse_keyword(article["content"]):
-            print("Adverse:", article["title"])
+            logging.info("Adverse: %s", article["title"])
