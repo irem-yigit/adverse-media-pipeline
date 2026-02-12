@@ -25,5 +25,9 @@ def run_bbc_pipeline():
         if article_date < today - timedelta(days=1):
             continue
 
-        if contains_adverse_keyword(article["content"]):
-            logging.info("Adverse: %s", article["title"])
+        is_adverse = contains_adverse_keyword(article["content"])
+
+        service.save_article(article, is_adverse)
+
+        if is_adverse:
+            logger.info(f"Adverse saved: {article['title']}")
