@@ -1,5 +1,5 @@
-from repository.article_repository import ArticleRepository
-from model.article import Article
+from db.repository.article_repository import ArticleRepository
+from db.model.article import Article
 
 class ArticleService:
 

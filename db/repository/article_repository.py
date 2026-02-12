@@ -1,6 +1,6 @@
 import psycopg2
 from config.database import get_connection
-from model.article import Article
+from db.model.article import Article
 
 class ArticleRepository:
 
