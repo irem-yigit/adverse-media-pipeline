@@ -3,8 +3,8 @@ from db.model.article import Article
 
 class ArticleService:
 
-    def __init__(self):
-        self.repository = ArticleRepository()
+    def __init__(self, repository: ArticleRepository):
+        self.repository = repository
 
     def save_article(self, article_data: dict, is_adverse: bool, source: str):
         article = Article(

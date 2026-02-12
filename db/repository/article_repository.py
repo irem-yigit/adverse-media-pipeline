@@ -5,21 +5,22 @@ from db.model.article import Article
 class ArticleRepository:
 
     def save(self, article: Article):
-        conn = get_connection()
-        cur = conn.cursor()
+        with get_connection() as conn:
+            with conn.cursor() as cur:
+                cur.execute("""
+                    INSERT INTO articles (url, title, content, published_at, source, is_adverse)
+                    VALUES (%s, %s, %s,  %s, %s, %s)
+                    ON CONFLICT (url) DO NOTHING
+                """, (
+                    article.url,
+                    article.title,
+                    article.content,
+                    article.published_at,
+                    article.source,
+                    article.is_adverse
+                ))
 
-        cur.execute("""
-            INSERT INTO articles (url, title, content, published_at, is_adverse)
-            VALUES (%s, %s, %s, %s, %s)
-            ON CONFLICT (url) DO NOTHING
-        """, (
-            article.url,
-            article.title,
-            article.content,
-            article.published_at,
-            article.is_adverse
-        ))
-
+        
         conn.commit()
         cur.close()
         conn.close()

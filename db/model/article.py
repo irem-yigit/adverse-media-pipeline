@@ -7,5 +7,6 @@ class Article:
     title: str
     content: str
     published_at: date
+    source: str
     is_adverse: bool
     
