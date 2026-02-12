@@ -27,6 +27,7 @@ To run the project, you must have the following software installed on your syste
 - urllib3 2.6+
 - beautifulsoup4 (bs4) 4.14+
 - lxml (opsiyonel) 6.0+
+- psycopg2 2.9.11
 - openai veya httpx
 - PostgreSQL or another compatible SQL database
 - Docker
@@ -41,31 +42,32 @@ To run the project, you must have the following software installed on your syste
 
 2. **Create and active a virtual environment**
 
-    ```bash
-    python -m venv venv
-    ```
+   ```bash
+   python -m venv venv
+   ```
 
-    ```bash
-    venv\Scripts\activate
-    ```
+   ```bash
+   venv\Scripts\activate
+   ```
     
-
 3. **Import and check the library**
 
-    ```bash
-    pip install requests beautifulsoup4 urllib3 lxml python-dotenv
-    ```
+   ```bash
+   pip install requests beautifulsoup4 urllib3 lxml python-dotenv
+   ```
+   ```bash
+   pip install psycopg2-binary
+   ```
 
     ```bash
     pip list
     ```
 
-
 4. **Run the project:**
 
-    ```bash
+   ```bash
    python main.py
-    ```
+   ```
 
    Once the application is launched, you can start using the APIs.
 
