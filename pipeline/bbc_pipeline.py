@@ -27,7 +27,11 @@ def run_bbc_pipeline():
 
         is_adverse = contains_adverse_keyword(article["content"])
 
-        service.save_article(article, is_adverse)
+        service.save_article(
+            article_data=article,
+            is_adverse=is_adverse,
+            source="BBC"
+        )
 
         if is_adverse:
             logger.info(f"Adverse saved: {article['title']}")
