@@ -13,7 +13,7 @@ The goal of this project is to support critical processes in finance, compliance
 
 ## Tech Stack
 
-- Python 3.14.2 version
+- Python 3.12.2 version
 - AI / NLP Models (Sentiment & Entity Extraction)
 - PostgreSQL 16 version
 
