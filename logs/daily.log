@@ -57,3 +57,16 @@ INFO:root:Adverse: Yılmaz Tunç'un adalet bakanlığı döneminde neler yaşand
 INFO:root:Adverse: Ali Yerlikaya'nın içişleri bakanlığı döneminde neler yaşandı?
 INFO:root:Adverse: DEM Parti heyeti Cumhurbaşkanı Erdoğan ile görüştü
 INFO:root:Daily adverse media job finished
+INFO:root:Daily adverse media job started
+Traceback (most recent call last):
+  File "C:\Users\yigit\projects\backend\adverse-media-pipeline\main.py", line 7, in <module>
+    main() 
+    ^^^^^^
+  File "C:\Users\yigit\projects\backend\adverse-media-pipeline\main.py", line 4, in main
+    run_daily_job()
+  File "C:\Users\yigit\projects\backend\adverse-media-pipeline\jobs\run_daily_job.py", line 8, in run_daily_job
+    run_bbc_pipeline()
+  File "C:\Users\yigit\projects\backend\adverse-media-pipeline\pipeline\bbc_pipeline.py", line 11, in run_bbc_pipeline
+    service = ArticleService()
+              ^^^^^^^^^^^^^^^^
+TypeError: ArticleService.__init__() missing 1 required positional argument: 'repository'
